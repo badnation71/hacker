@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StepStyle - Premium Footwear E-commerce Platform">
+    <meta name="keywords" content="shoes, sneakers, boots, footwear, online shopping">
+    <title>StepStyle - Premium Footwear</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shoe-prints text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">StepStyle</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-green-600 transition">Home</a>
+                    <a href="#shop" class="hover:text-green-600 transition">Shop</a>
+                    <a href="#categories" class="hover:text-green-600 transition">Categories</a>
+                    <a href="#best-sellers" class="hover:text-green-600 transition">Best Sellers</a>
+                </div>
+
+                <div class="hidden sm:flex items-center flex-1 mx-8">
+                    <div class="relative w-full max-w-md">
+                        <input type="text" placeholder="Search shoes..." class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600">
+                        <button class="absolute right-3 top-2.5 text-gray-400"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    <a href="#" class="p-2 relative hover:text-green-600">
+                        <i class="fas fa-heart"></i>
+                        <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                    <a href="#cart" class="p-2 relative hover:text-green-600">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount" class="absolute top-0 right-0 bg-green-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </a>
+                    <div class="relative group">
+                        <button class="p-2 hover:text-green-600">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg hidden group-hover:block">
+                            <a href="#login" class="block px-4 py-2 hover:bg-green-50 dark:hover:bg-gray-700">Login</a>
+                            <a href="#register" class="block px-4 py-2 hover:bg-green-50 dark:hover:bg-gray-700">Register</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-green-50 dark:hover:bg-gray-700">My Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen bg-gradient-to-r from-gray-900 to-green-900 text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&h=600&fit=crop" alt="Hero" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                <div class="flex flex-col justify-center">
+                    <h1 class="text-6xl md:text-7xl font-bold mb-4">Step Into Style</h1>
+                    <p class="text-xl text-gray-200 mb-8">Premium footwear for every occasion. From sneakers to formal shoes.</p>
+                    <div class="flex gap-4">
+                        <button class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105">Shop Now</button>
+                        <button class="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale Section -->
+    <section class="bg-red-50 dark:bg-red-900 py-12 border-y-4 border-red-600">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div>
+                    <h3 class="text-3xl font-bold text-red-600 dark:text-red-400 mb-2">⚡ FLASH SALE</h3>
+                    <p class="text-gray-700 dark:text-gray-200">Get up to 50% off on selected items</p>
+                </div>
+                <div class="mt-4 md:mt-0" id="countdown"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop" alt="Men's" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h3 class="font-semibold text-lg">Men's Shoes</h3>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1543163521-9efcc06814d7?w=300&h=300&fit=crop" alt="Women's" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h3 class="font-semibold text-lg">Women's Shoes</h3>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1560343090-0dd3f0e51db9?w=300&h=300&fit=crop" alt="Kids'" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h3 class="font-semibold text-lg">Kids' Shoes</h3>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-lg mb-4 h-48 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop" alt="Sports" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    </div>
+                    <h3 class="font-semibold text-lg">Sports Shoes</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="shop" class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Featured Products</h2>
+            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section id="best-sellers" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Best Sellers</h2>
+            <div id="bestSellersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Customer Reviews</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-full"></div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">John Doe</h4>
+                            <p class="text-yellow-500">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Excellent quality and fast delivery!</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-full"></div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Jane Smith</h4>
+                            <p class="text-yellow-500">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Great selection and amazing service!</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-full"></div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Mike Johnson</h4>
+                            <p class="text-yellow-500">★★★★★</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">Perfect fit and premium quality!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-green-600 text-white py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p class="text-green-100 mb-8">Get exclusive deals and new arrivals</p>
+            <div class="flex gap-4 justify-center flex-col sm:flex-row">
+                <input type="email" placeholder="Your email" class="px-4 py-3 rounded-lg text-gray-900 flex-1 max-w-md focus:outline-none">
+                <button class="bg-gray-900 hover:bg-black px-8 py-3 rounded-lg font-semibold transition">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-white mb-4">StepStyle</h4>
+                    <p class="text-sm">Premium footwear for every occasion.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-green-600">Home</a></li>
+                        <li><a href="#" class="hover:text-green-600">Shop</a></li>
+                        <li><a href="#" class="hover:text-green-600">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-green-600">FAQ</a></li>
+                        <li><a href="#" class="hover:text-green-600">Contact</a></li>
+                        <li><a href="#" class="hover:text-green-600">Returns</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contact</h4>
+                    <p class="text-sm">+255 123 456 789</p>
+                    <p class="text-sm">support@stepstyle.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2024 StepStyle. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center p-6 border-b">
+                <h3 class="text-2xl font-bold">Product Details</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
